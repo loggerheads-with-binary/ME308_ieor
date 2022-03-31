@@ -81,8 +81,12 @@ def update_sheet(sheet , solutions):
 
     vals = {x : x.value() for x in solutions}
 
-    cells = [Cell(row = i+1 , col = 2 , value = vals[key]) for ]
-    cells.extend([row = i+1 , col = 3 , value = vals['']])
+    logger.info("Setting up ")
+    cells = [Cell(row = i+1 , col = 3 , value = vals[f'T_{i}']) for i in range(1,6)]
+    cells.extend([Cell(row = i+1 , col = 4 , value = vals[f'O_{i}']) for i in range(1,6)]])
+
+    sheet.update_cells(cells)
+    logger.info("Sheet updated with solved variable values")
 
 def solve(model):
 
